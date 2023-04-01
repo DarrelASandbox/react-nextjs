@@ -2,6 +2,7 @@
 
 - Next.js & React - The Complete Guide (incl. Two Paths!)
 - Learn NextJS from the ground up and build production-ready, fullstack ReactJS apps with the NextJS framework!
+- [GitHub - nextjs-course-code](https://github.com/mschwarzmueller/nextjs-course-code)
 - [Maximilian Schwarzmüller](https://github.com/maxschwarzmueller)
 - [Academind](https://academind.com/)
 
@@ -11,7 +12,7 @@
 
 &nbsp;
 
-## Notes
+## Why NextJS
 
 - The React Framework for Production
 - **Key Features:**
@@ -31,7 +32,29 @@
 
 &nbsp;
 
-### Setup
+## Course Outline
+
+- **Basic & Foundation** (Introducing key features)
+  - File-Based Routing
+  - Page Pre-Rendering & Data Fetching
+  - Combining "Standard Rect" & NextJS
+  - API Routes & Fullstack Capabilities
+- **Advanced Concepts** (Building for production)
+  - Optimization Opportunities
+  - Looking Behind the Scenes & Theory
+  - Deployment & Configuration
+  - Authentication
+- **Summaries & Refreshers** (Optimizing your time)
+  - ReactJS Refresher
+  - NextJS Summary
+
+&nbsp;
+
+---
+
+&nbsp;
+
+## Setup
 
 - `npx create-next-app`
 - Parsing error : Cannot find module 'next/babel' -> `.eslintrc.json` -> `"extends": ["next/babel","next/core-web-vitals"]`
