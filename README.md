@@ -65,3 +65,15 @@
 ---
 
 &nbsp;
+
+## Basic & Foundation
+
+### File-Based Routing
+
+![file-based-routing](diagrams/file-based-routing.png)
+
+&nbsp;
+
+---
+
+&nbsp;
