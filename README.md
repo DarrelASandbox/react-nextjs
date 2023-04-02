@@ -77,3 +77,20 @@
 ---
 
 &nbsp;
+
+## next-events-app
+
+### Planning The Project Routes
+
+|        Path         |         Page         |       Remarks        |
+| :-----------------: | :------------------: | :------------------: |
+|         `/`         |     Landing Page     | Show featured event  |
+|      `/events`      |     Events Page      |   Show all events    |
+| `/events/<some-id>` |  Event Details Page  | Show selected event  |
+|  `/events/...slug`  | Filtered Events Page | Show filtered events |
+
+&nbsp;
+
+---
+
+&nbsp;
