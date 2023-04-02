@@ -8,7 +8,7 @@ const EventItem = (props) => {
   const formattedDate = new Date(date).toLocaleDateString('en-US', {
     day: '2-digit',
     month: 'short',
-    year: '2-digit',
+    year: 'numeric',
   });
 
   const formattedAddress = location.replace(', ', '\n');
