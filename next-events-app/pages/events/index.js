@@ -1,7 +1,14 @@
-const AllEventsPage = () => (
-  <div>
-    <h1>All Events Page</h1>
-  </div>
-);
+import EventList from '@/components/events/event-list';
+import { getFeaturedEvents } from '@/dummy-data';
+
+const AllEventsPage = () => {
+  const featuredEvents = getFeaturedEvents();
+
+  return (
+    <div>
+      <EventList items={featuredEvents} />
+    </div>
+  );
+};
 
 export default AllEventsPage;
