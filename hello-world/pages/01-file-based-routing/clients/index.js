@@ -12,14 +12,17 @@ const ClientListPage = () => {
       <ol>
         {/* {clients.map((client) => (
           <li key={client.id}>
-            <Link href={`/clients/${client.id}`}>{client.name}</Link>
+            <Link href={`/01-file-based-routing/clients/${client.id}`}>{client.name}</Link>
           </li>
         ))} */}
 
         {clients.map((client) => (
           <li key={client.id}>
             <Link
-              href={{ pathname: '/clients/[clientid]', query: { clientid: client.id } }}
+              href={{
+                pathname: '/01-file-based-routing/clients/[clientid]',
+                query: { clientid: client.id },
+              }}
             >
               {client.name}
             </Link>

@@ -6,9 +6,9 @@ const ClientPage = () => {
 
   const loadClientHandler = () => {
     // load data...
-    // router.push('/clients/max/project1');
+    // router.push('/01-file-based-routing/clients/max/project1');
     router.push({
-      pathname: '/clients/[clientid]/[clientprojectid]',
+      pathname: '/01-file-based-routing/clients/[clientid]/[clientprojectid]',
       query: { clientid: 'max', clientprojectid: 'project1' },
     });
   };

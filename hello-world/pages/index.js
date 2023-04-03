@@ -5,13 +5,7 @@ const HomePage = () => (
     <h1>Home Page</h1>
     <ul>
       <li>
-        <Link href="/portfolio">Portfolio</Link>
-      </li>
-      <li>
-        <Link href="/clients">Clients</Link>
-      </li>
-      <li>
-        <Link href="/blog">Blog</Link>
+        <Link href="/01-file-based-routing">01-file-based-routing</Link>
       </li>
     </ul>
   </div>
