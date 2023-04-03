@@ -6,6 +6,7 @@ const HomePage = () => (
     <ul>
       <li>
         <Link href="/01-file-based-routing">01-file-based-routing</Link>
+        <Link href="/02-page-pre-rendering">02-page-pre-rendering</Link>
       </li>
     </ul>
   </div>
