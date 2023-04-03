@@ -18,11 +18,12 @@ const HomePage = (props) => {
 };
 
 export const getStaticProps = async () => {
+  console.log('Regenerating');
   const filePath = path.join(process.cwd(), 'data', 'dummy-backend.json'); // Root level and not page level
   const jsonData = await fs.readFile(filePath);
   const data = JSON.parse(jsonData);
 
-  return { props: { products: data.products } };
+  return { props: { products: data.products }, revalidate: 10 };
 };
 
 export default HomePage;

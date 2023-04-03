@@ -78,10 +78,15 @@
 
 ![page-pre-rendering](diagrams/page-pre-rendering.png)
 
-- **Static Generation**
+- **Static Site Generation**
   - Pre-generation a page (with data prepared on the server-side) during build time
   - Pages are prepared ahead to time and can be cached by the server/ CDN serving the app
   - `export async function getStaticProps(context){...}`
+- **Incremental Static Regeneration (ISR)**
+  - Pre-generate Page
+  - Re-generate it on every request, at most every X seconds
+    - Serve "old" page if re-generation is not needed yet
+    - Generate, store and serve "new" page otherwise
 
 &nbsp;
 
