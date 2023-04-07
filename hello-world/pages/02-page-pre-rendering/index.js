@@ -1,6 +1,8 @@
 // From NodeJS
-import path from 'path';
 import fs from 'fs/promises';
+import path from 'path';
+
+import Link from 'next/link';
 
 const HomePage = (props) => {
   const { products } = props;
@@ -10,7 +12,9 @@ const HomePage = (props) => {
       <h1>Home Page</h1>
       <ul>
         {products.map((product) => (
-          <li key={product.id}>{product.title}</li>
+          <li key={product.id}>
+            <Link href={`/02-page-pre-rendering/${product.id}`}>{product.title}</Link>
+          </li>
         ))}
       </ul>
     </div>

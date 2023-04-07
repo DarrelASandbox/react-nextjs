@@ -87,6 +87,7 @@
   - Re-generate it on every request, at most every X seconds
     - Serve "old" page if re-generation is not needed yet
     - Generate, store and serve "new" page otherwise
+  - `export async function getStaticPaths(){...}`
 
 &nbsp;
 
