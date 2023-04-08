@@ -5,9 +5,6 @@ import path from 'path';
 const ProductDetailPage = (props) => {
   const { loadedProduct } = props;
 
-  // Fallback state for p2 and p3 which are not pre-generated
-  if (!loadedProduct) return <p>Loading...</p>;
-
   return (
     <>
       <h1>{loadedProduct.title}</h1>
@@ -16,13 +13,16 @@ const ProductDetailPage = (props) => {
   );
 };
 
+const getData = async () => {
+  const filePath = path.join(process.cwd(), 'data', 'dummy-backend.json'); // Root level and not page level
+  const jsonData = await fs.readFile(filePath);
+  return JSON.parse(jsonData);
+};
+
 export const getStaticProps = async (context) => {
   const { params } = context;
   const productId = params.pid;
-
-  const filePath = path.join(process.cwd(), 'data', 'dummy-backend.json'); // Root level and not page level
-  const jsonData = await fs.readFile(filePath);
-  const data = JSON.parse(jsonData);
+  const data = await getData();
 
   const product = data.products.find((product) => product.id === productId);
   return {
@@ -33,11 +33,13 @@ export const getStaticProps = async (context) => {
 };
 
 export const getStaticPaths = async () => {
+  const data = await getData();
+  const ids = data.products.map((product) => product.id);
+  const params = ids.map((id) => ({ params: { pid: id } }));
+
   return {
-    paths: [
-      { params: { pid: 'p1' } }, // pre-generate p1 only instead of p1 to p3
-    ],
-    fallback: true,
+    paths: params,
+    fallback: false,
   };
 };
 
