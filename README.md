@@ -118,8 +118,17 @@
 | `/events/<some-id>` |  Event Details Page  | Show selected event  |
 |  `/events/...slug`  | Filtered Events Page | Show filtered events |
 
+- [Firebase](https://console.firebase.google.com)
+  - Create Project
+  - Create Realtime Database in test mode
+  - Import `dummy-data.json`
+
 &nbsp;
 
 ---
 
 &nbsp;
+
+```
+
+```
