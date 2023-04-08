@@ -92,6 +92,13 @@
   - Pre-render for every request
   - Need to access to the request object (e.g. cookies)
   - `export async function getServerSideProps(){...}`
+- **Client-Side Data Fetching**
+  - Data that doesn't require pre-rendering
+    - Data changing with high frequency (e.g. stock data)
+    - User specific data (e.g. last orders in an online shop)
+    - Partial data (e.g. data that's only used on a part of an page)
+  - Pre-fetching the data for page generation might not work or be required
+    - "Traditional" client-side data fetching (e.g. `useEffect()` with `fetch()` is fine)
 
 &nbsp;
 
