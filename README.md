@@ -78,7 +78,7 @@
 
 ![page-pre-rendering](diagrams/page-pre-rendering.png)
 
-- **Static Site Generation**
+- **Static Site Generation (SSG)**
   - Pre-generation a page (with data prepared on the server-side) during build time
   - Pages are prepared ahead to time and can be cached by the server/ CDN serving the app
   - `export async function getStaticProps(context){...}`
@@ -88,6 +88,10 @@
     - Serve "old" page if re-generation is not needed yet
     - Generate, store and serve "new" page otherwise
   - `export async function getStaticPaths(){...}`
+- **Server Side Rendering (SSR)**
+  - Pre-render for every request
+  - Need to access to the request object (e.g. cookies)
+  - `export async function getServerSideProps(){...}`
 
 &nbsp;
 

@@ -13,7 +13,9 @@ const HomePage = (props) => {
       <ul>
         {products.map((product) => (
           <li key={product.id}>
-            <Link href={`/02-page-pre-rendering/${product.id}`}>{product.title}</Link>
+            <Link href={`/02-page-pre-rendering/products/${product.id}`}>
+              {product.title}
+            </Link>
           </li>
         ))}
       </ul>
