@@ -99,6 +99,7 @@
     - Partial data (e.g. data that's only used on a part of an page)
   - Pre-fetching the data for page generation might not work or be required
     - "Traditional" client-side data fetching (e.g. `useEffect()` with `fetch()` is fine)
+  - `npm i swr` ([SWR - React Hooks for Data Fetching](https://swr.vercel.app/))
 
 &nbsp;
 

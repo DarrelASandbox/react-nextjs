@@ -1,28 +1,18 @@
 import { useEffect, useState } from 'react';
+import useSWR from 'swr';
 
 const LastSalesPage = () => {
   const [sales, setSales] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  const { data, error } = useSWR('https://dummyjson.com/products', async (url) =>
+    (await fetch(url)).json()
+  );
 
   useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
+    if (data) setSales(data.products);
+  }, [data]);
 
-      try {
-        const res = await fetch('https://dummyjson.com/products');
-        const data = await res.json();
-        setSales(data.products);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Failed to load.</p>;
+  if (!data || !sales) return <p>Loading...</p>;
 
   return (
     <ul>
