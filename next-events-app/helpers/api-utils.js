@@ -1,7 +1,5 @@
 const getAllEvents = async () => {
-  const res = await fetch(
-    'https://nextjs-d69a4-default-rtdb.asia-southeast1.firebasedatabase.app/events.json'
-  );
+  const res = await fetch(process.env.firebaseURL);
   const data = await res.json();
   const events = [];
   for (const key in data) {

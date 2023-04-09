@@ -2,13 +2,43 @@ import EventList from '@/components/events/event-list';
 import ResultsTitle from '@/components/results-title/results-title';
 import Button from '@/components/ui/button';
 import ErrorAlert from '@/components/ui/error-alert';
-import { getFilteredEvents } from '@/helpers/api-utils';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import useSWR from 'swr';
 
-const FilteredEventPage = (props) => {
-  const { filteredEvents } = props;
-  const { year, month } = filteredEvents;
+const FilteredEventPage = () => {
+  // Client-Side Data Fetching
+  const [loadedEvents, setLoadedEvents] = useState();
 
-  if (props.hasError)
+  const router = useRouter();
+  const filteredData = router.query.slug;
+  const fetcher = async (url) => (await fetch(url)).json();
+  const { data, error } = useSWR(process.env.firebaseURL, fetcher);
+
+  useEffect(() => {
+    if (data) {
+      const events = [];
+      for (const key in data) {
+        events.push({ id: key, ...data[key] });
+      }
+      setLoadedEvents(events);
+    }
+  }, [data]);
+
+  if (!loadedEvents) return <p className="center">Loading...</p>;
+
+  const filteredYear = +filteredData[0];
+  const filteredMonth = +filteredData[1];
+
+  if (
+    isNaN(filteredYear) ||
+    isNaN(filteredMonth) ||
+    filteredYear > 2030 ||
+    filteredYear < 2021 ||
+    filteredMonth > 12 ||
+    filteredMonth < 1 ||
+    error
+  )
     return (
       <>
         <div className="center">
@@ -19,6 +49,14 @@ const FilteredEventPage = (props) => {
         </div>
       </>
     );
+
+  const filteredEvents = loadedEvents.filter((event) => {
+    const eventDate = new Date(event.date);
+    return (
+      eventDate.getFullYear() === filteredYear &&
+      eventDate.getMonth() === filteredMonth - 1
+    );
+  });
 
   if (!filteredEvents || filteredEvents.length === 0)
     return (
@@ -32,7 +70,7 @@ const FilteredEventPage = (props) => {
       </>
     );
 
-  const date = new Date(year, month - 1);
+  const date = new Date(filteredYear, filteredMonth - 1);
 
   return (
     <>
@@ -40,31 +78,6 @@ const FilteredEventPage = (props) => {
       <EventList items={filteredEvents} />
     </>
   );
-};
-
-export const getServerSideProps = async (context) => {
-  const { params } = context;
-
-  const filteredData = params.slug;
-  const filteredYear = +filteredData[0];
-  const filteredMonth = +filteredData[1];
-
-  if (
-    isNaN(filteredYear) ||
-    isNaN(filteredMonth) ||
-    filteredYear > 2030 ||
-    filteredYear < 2021 ||
-    filteredMonth > 12 ||
-    filteredMonth < 1
-  )
-    return { props: { filteredEvents: [], hasError: true } };
-
-  const filteredEvents = await getFilteredEvents({
-    year: filteredYear,
-    month: filteredMonth,
-  });
-
-  return { props: { filteredEvents } };
 };
 
 export default FilteredEventPage;
