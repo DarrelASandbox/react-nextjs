@@ -103,6 +103,14 @@
 
 &nbsp;
 
+## Optimization Opportunities
+
+- Adding meta and <head> tags
+- Re-using components, logic & configuration
+- Optimizing images
+
+&nbsp;
+
 ---
 
 &nbsp;

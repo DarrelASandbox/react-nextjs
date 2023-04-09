@@ -2,6 +2,7 @@ import EventList from '@/components/events/event-list';
 import ResultsTitle from '@/components/results-title/results-title';
 import Button from '@/components/ui/button';
 import ErrorAlert from '@/components/ui/error-alert';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import useSWR from 'swr';
@@ -74,6 +75,13 @@ const FilteredEventPage = () => {
 
   return (
     <>
+      <Head>
+        <title>Filtered Events</title>
+        <meta
+          name="description"
+          content={`The event list for ${filteredMonth}/${filteredYear}`}
+        />
+      </Head>
       <ResultsTitle date={date} />
       <EventList items={filteredEvents} />
     </>
