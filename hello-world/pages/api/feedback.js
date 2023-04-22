@@ -18,7 +18,12 @@ const handler = (req, res) => {
     } catch (e) {
       console.log(e);
     }
-  } else return res.status(200).json({ message: 'Nice!' });
+  } else {
+    const filePath = path.join(process.cwd(), 'data', 'feedback.json');
+    const fileData = fs.readFileSync(filePath);
+    const data = JSON.parse(fileData);
+    return res.status(200).json({ feedback: data });
+  }
 };
 
 export default handler;
