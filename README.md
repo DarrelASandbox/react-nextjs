@@ -88,6 +88,11 @@
     - Serve "old" page if re-generation is not needed yet
     - Generate, store and serve "new" page otherwise
   - `export async function getStaticPaths(){...}`
+
+&nbsp;
+
+### Combining "Standard Rect" & NextJS
+
 - **Server Side Rendering (SSR)**
   - Pre-render for every request
   - Need to access to the request object (e.g. cookies)
@@ -103,7 +108,19 @@
 
 &nbsp;
 
-## Optimization Opportunities
+### API Routes & Fullstack Capabilities
+
+- Store server side code in `./pages/api`
+
+&nbsp;
+
+---
+
+&nbsp;
+
+## Advanced Concepts
+
+### Optimization Opportunities
 
 - Adding meta and <head> tags
 - Re-using components, logic & configuration
@@ -136,7 +153,3 @@
 ---
 
 &nbsp;
-
-```
-
-```

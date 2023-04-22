@@ -10,6 +10,9 @@ const HomePage = () => (
       <li>
         <Link href="/02-page-pre-rendering">02-page-pre-rendering</Link>
       </li>
+      <li>
+        <Link href="/03-api-routes">03-api-routes</Link>
+      </li>
     </ul>
   </div>
 );
