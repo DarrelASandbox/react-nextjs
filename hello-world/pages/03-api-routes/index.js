@@ -4,10 +4,23 @@ const HomePage = () => {
   const emailInputRef = useRef();
   const feedbackInputRef = useRef();
 
-  const submitFormHandler = (e) => {
+  const submitFormHandler = async (e) => {
     e.preventDefault();
     const enteredEmail = emailInputRef.current.value;
     const enteredFeedback = feedbackInputRef.current.value;
+    const reqBody = { email: enteredEmail, text: enteredFeedback };
+
+    try {
+      const response = await fetch('/api/feedback', {
+        method: 'POST',
+        body: JSON.stringify(reqBody),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = response.json();
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (

@@ -111,6 +111,7 @@
 ### API Routes & Fullstack Capabilities
 
 - Store server side code in `./pages/api`
+- Using NodeJS features in `api` folder
 
 &nbsp;
 
