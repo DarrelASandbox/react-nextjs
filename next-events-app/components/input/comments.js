@@ -14,7 +14,6 @@ function Comments(props) {
     const getComments = async () => {
       const response = await fetch(`/api/comments/${eventId}`);
       const data = await response.json();
-      console.log(data);
       setComments(data.comment);
     };
 
