@@ -13,9 +13,11 @@ const handler = async (req, res) => {
     const mongoConnectionString = serverRuntimeConfig.mongoConnectionString;
 
     try {
-      const client = await MongoClient.connect(mongoConnectionString);
+      const client = await MongoClient.connect(
+        mongoConnectionString + 'newsletter?retryWrites=true&w=majority'
+      );
       const db = client.db();
-      await db.collection('emails').insertOne({ email: userEmail });
+      await db.collection('newsletter').insertOne({ email: userEmail });
       client.close();
       return res.status(201).json({ message: 'Signed up!' });
     } catch (e) {
