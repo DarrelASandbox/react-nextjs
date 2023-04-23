@@ -7,7 +7,7 @@ const nextConfig = {
   },
   serverRuntimeConfig: {
     mongoConnectionString:
-      'mongodb+srv://user1:Y7pRbuTy5BR05V97@cluster0.b2j2h.mongodb.net/',
+      'mongodb+srv://user1:Y7pRbuTy5BR05V97@cluster0.b2j2h.mongodb.net/next-events?retryWrites=true&w=majority',
   },
 };
 
