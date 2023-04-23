@@ -1,6 +1,7 @@
 import EventContent from '@/components/event-details/event-content';
 import EventLogistics from '@/components/event-details/event-logistics';
 import EventSummary from '@/components/event-details/event-summary';
+import Comments from '@/components/input/comments';
 import { getEventById, getFeaturedEvents } from '@/helpers/api-utils';
 import Head from 'next/head';
 
@@ -30,6 +31,7 @@ const EventDetailsPage = (props) => {
       <EventContent>
         <p>{event.description}</p>
       </EventContent>
+      <Comments eventId={event.id} />
     </>
   );
 };
