@@ -4,17 +4,19 @@ import path from 'path';
 
 const postsDir = path.join(process.cwd(), 'posts');
 
-const getPostData = (fileName) => {
-  const filePath = path.join(postsDir, fileName);
+const getPostFiles = () => fs.readdirSync(postsDir);
+
+const getPostData = (postIdentifier) => {
+  const postSlug = postIdentifier.replace(/\.md$/, ''); // removes file extension
+  const filePath = path.join(postsDir, `${postSlug}.md`);
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   const { data, content } = matter(fileContent);
-  const postSlug = fileName.replace(/\.md$/, ''); // removes file extension
   const postData = { slug: postSlug, ...data, content };
   return postData;
 };
 
 const getAllPosts = () => {
-  const postFiles = fs.readdirSync(postsDir);
+  const postFiles = getPostFiles();
   const allPosts = postFiles.map((postFile) => getPostData(postFile));
   const sortedPosts = allPosts.sort((postA, postB) => (postA.date > postB.date ? -1 : 1));
   return sortedPosts;
@@ -26,4 +28,4 @@ const getFeaturedPosts = () => {
   return featuredPosts;
 };
 
-export { getAllPosts, getFeaturedPosts };
+export { getPostFiles, getPostData, getAllPosts, getFeaturedPosts };
