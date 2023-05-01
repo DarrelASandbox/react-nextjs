@@ -2,9 +2,9 @@ import { useState } from 'react';
 import classes from './contact-form.module.css';
 
 const ContactForm = () => {
-  const [enteredEmail, setEnteredEmail] = useState();
-  const [enteredName, setEnteredName] = useState();
-  const [enteredMessage, setEnteredMessage] = useState();
+  const [enteredEmail, setEnteredEmail] = useState('');
+  const [enteredName, setEnteredName] = useState('');
+  const [enteredMessage, setEnteredMessage] = useState('');
 
   const sendMessageHandler = (e) => {
     e.preventDefault();
