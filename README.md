@@ -159,6 +159,7 @@
 
 - `npm i react-markdown`
 - `npm i gray-matter`
+- `npm i react-syntax-highlighter`
 
 &nbsp;
 
