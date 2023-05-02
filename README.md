@@ -129,6 +129,29 @@
 
 &nbsp;
 
+### Deployment & Configuration
+
+- **Standard Build:**
+  - `next build`
+  - Produces optimized production bundles and a server-side app (Requires NodeJS server)
+  - Pages are pre-rendered (if possible) but NodeJS server is required for API routes, server-side pages and pager revalidation
+  - Re-deploy needed if code changes or you don't use revalidation and need page updates
+- **Full Static Build:**
+  - `next export`
+  - Produces 100% static app (HTML, CSS & JS), hence NodeJS server is not required
+  - Doesn't work if your app uses API routes, server-side pages or wants to use page revalidation
+  - re-deploy needed for all code and content changes
+  - [Understanding static HTML export in Next.js](https://blog.logrocket.com/understanding-static-html-export-next-js/)
+- **Deployment Steps:**
+  1. Add page metadata, optimize code, remove unnecessary dependencies
+  2. Use environment variables for variable data (e.g. database credentials, API keys, ...)
+  3. Do a test build and test the production-ready app locally or on some test server
+  4. Deploy
+
+![next-full-blog-build](diagrams/next-full-blog-build.png)
+
+&nbsp;
+
 ---
 
 &nbsp;
