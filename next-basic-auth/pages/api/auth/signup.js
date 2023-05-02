@@ -13,11 +13,18 @@ const handler = async (req, res) => {
 
   const client = await connectToDatabase();
   const db = client.db();
+  const existingUser = await db.collection('users').findOne({ email });
+  if (existingUser) {
+    res.status(422).json({ message: 'User already exist!' });
+    client.close();
+    return;
+  }
   const hashedPassword = await hashPassword(password);
   const result = await db
     .collection('users')
     .insertOne({ email, password: hashedPassword });
-  return res.status(201).json({ message: 'User is created!' });
+  res.status(201).json({ message: 'User is created!' });
+  client.close();
 };
 
 export default handler;
