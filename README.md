@@ -183,6 +183,20 @@
 - `npm i react-markdown`
 - `npm i gray-matter`
 - `npm i react-syntax-highlighter`
+- `npm i mongodb`
+
+&nbsp;
+
+---
+
+&nbsp;
+
+## next-basic-auth
+
+- [NextAuth](https://next-auth.js.org/)
+- `npm i next-auth`
+- `npm i mongodb`
+- `npm i bcryptjs`
 
 &nbsp;
 
