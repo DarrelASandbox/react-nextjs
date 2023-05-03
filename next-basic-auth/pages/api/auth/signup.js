@@ -1,4 +1,4 @@
-import hashPassword from '@/lib/auth';
+import { hashPassword } from '@/lib/auth';
 import connectToDatabase from '@/lib/db';
 
 const handler = async (req, res) => {
